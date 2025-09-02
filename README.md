@@ -1,170 +1,156 @@
-# ChatGPT Discord Bot
+ChatGPT Discord Bot
 
-> ### Build your own Discord bot with multiple AI providers
+Construa seu próprio bot do Discord com múltiplos provedores de IA
 
----
-> [!IMPORTANT]
->
-> **Major Refactor (2025/07):**
-> - **5 AI Providers**: Free (g4f), OpenAI, Claude, Gemini, Grok
-> - **No Cookie Authentication**: Removed unreliable cookie-based auth for free providers
+⸻
 
-### Chat
+[!IMPORTANTE]
 
-![image](https://user-images.githubusercontent.com/89479282/206497774-47d960cd-1aeb-4fba-9af5-1f9d6ff41f00.gif)
+Grande Refatoração (07/2025):
+	•	5 Provedores de IA: Gratuito (g4f), OpenAI, Claude, Gemini, Grok
+	•	Sem Autenticação via Cookie: Removida a autenticação baseada em cookies para provedores gratuitos (considerada instável)
 
-# Setup
-## Prerequisites
-* **Python 3.9 or later**
-* **Rename the file `.env.example` to `.env`**
-* Running `pip3 install -r requirements.txt` to install the required dependencies
-* Optional: API keys for premium providers (OpenAI, Claude, Gemini, Grok)
----
-## Step 1: Create a Discord bot
+Chat
 
-1. Go to https://discord.com/developers/applications create an application
-2. Build a Discord bot under the application
-3. Get the token from bot setting
+Configuração
 
-   ![image](https://user-images.githubusercontent.com/89479282/205949161-4b508c6d-19a7-49b6-b8ed-7525ddbef430.png)
-4. Store the token to `.env` under the `DISCORD_BOT_TOKEN`
+Pré-requisitos
+	•	Python 3.9 ou superior
+	•	Renomear o arquivo .env.example para .env
+	•	Rodar pip3 install -r requirements.txt para instalar as dependências
+	•	Opcional: Chaves de API para provedores premium (OpenAI, Claude, Gemini, Grok)
 
-   <img height="190" width="390" alt="image" src="https://user-images.githubusercontent.com/89479282/222661803-a7537ca7-88ae-4e66-9bec-384f3e83e6bd.png">
+⸻
 
-5. Turn MESSAGE CONTENT INTENT `ON`
+Passo 1: Criar um bot no Discord
+	1.	Vá em https://discord.com/developers/applications e crie uma aplicação
+	2.	Crie um bot dentro da aplicação
+	3.	Pegue o token nas configurações do bot
 
-   ![image](https://user-images.githubusercontent.com/89479282/205949323-4354bd7d-9bb9-4f4b-a87e-deb9933a89b5.png)
+	4.	Guarde o token no .env em DISCORD_BOT_TOKEN
 
-6. Invite your bot to your server via OAuth2 URL Generator
-
-   ![image](https://user-images.githubusercontent.com/89479282/205949600-0c7ddb40-7e82-47a0-b59a-b089f929d177.png)
+<img height="190" width="390" alt="image" src="https://user-images.githubusercontent.com/89479282/222661803-a7537ca7-88ae-4e66-9bec-384f3e83e6bd.png">
 
 
 
-## Step 2: Run the bot on the desktop
+	5.	Ative a opção MESSAGE CONTENT INTENT (ON)
 
-1. Open a terminal or command prompt
+	6.	Convide seu bot para o servidor usando o OAuth2 URL Generator
 
-2. Navigate to the directory where you installed the ChatGPT Discord bot
+Passo 2: Rodar o bot no desktop
+	1.	Abra um terminal ou prompt de comando
+	2.	Navegue até o diretório onde instalou o ChatGPT Discord Bot
+	3.	Execute python3 main.py ou python main.py
 
-3. Run `python3 main.py` or `python main.py` to run the bot
----
-## Step 2: Run the bot with Docker
+⸻
 
-1. Build the Docker image & run the Docker container with `docker compose up -d`
+Passo 2: Rodar o bot com Docker
+	1.	Construa a imagem Docker e rode o container com docker compose up -d
+	2.	Verifique se o bot está funcionando com docker logs -t chatgpt-discord-bot
+Parar o bot:
+	•	docker ps para listar serviços em execução
+	•	docker stop <BOT CONTAINER ID> para parar o bot
 
-2. Inspect whether the bot works well `docker logs -t chatgpt-discord-bot`
+Bom chat!
 
-   ### Stop the bot:
+⸻
 
-   * `docker ps` to see the list of running services
-   * `docker stop <BOT CONTAINER ID>` to stop the running bot
+Configuração de Provedores
 
-### Have a good chat!
----
+Provedor Gratuito (instável)
 
-## Provider Configuration
+Modelo desatualizado, próximo às capacidades do GPT-3.5 ou GPT-4
 
-### Free Provider (unstable)
-Outdated model, close to GPT-3.5 or GPT-4 capabilities
+Não requer configuração
 
-No configuration required
+Provedores Premium (Opcional)
 
-### Premium Providers (Optional)
+OpenAI
+	1.	Pegue sua chave de API em https://platform.openai.com/api-keys
+	2.	Adicione no .env: OPENAI_KEY=sua_chave
 
-#### OpenAI
-1. Obtain your API key from https://platform.openai.com/api-keys
-2. Add to `.env`: `OPENAI_KEY=your_api_key_here`
+Claude (Anthropic)
+	1.	Pegue sua chave em https://console.anthropic.com/
+	2.	Adicione no .env: CLAUDE_KEY=sua_chave
 
-#### Claude (Anthropic)
-1. Get API key from https://console.anthropic.com/
-2. Add to `.env`: `CLAUDE_KEY=your_api_key_here`
+Gemini (Google)
+	1.	Pegue sua chave em https://ai.google.dev/
+	2.	Adicione no .env: GEMINI_KEY=sua_chave
 
-#### Gemini (Google)
-1. Get API key from https://ai.google.dev/
-2. Add to `.env`: `GEMINI_KEY=your_api_key_here`
+Grok (xAI)
+	1.	Pegue sua chave em https://x.ai/api
+	2.	Adicione no .env: GROK_KEY=sua_chave
 
-#### Grok (xAI)
-1. Get API key from https://x.ai/api
-2. Add to `.env`: `GROK_KEY=your_api_key_here`
+Use o comando /provider no Discord para alternar entre provedores disponíveis
 
-Use `/provider` command in Discord to switch between available providers
-
-## Image Generation
+Geração de Imagens
 
 <img src="https://i.imgur.com/Eo1ZzKk.png" width="300" alt="image">
 
-Image generation is now integrated with the provider system:
 
-### OpenAI DALL-E 3
-- Requires OpenAI API key
-- High-quality image generation
-- Use `/draw [prompt] openai`
+Agora integrado ao sistema de provedores:
 
-### Google Gemini
-- Requires Gemini API key  
-- Free tier available
-- Use `/draw [prompt] gemini`
+OpenAI DALL-E 3
+	•	Requer chave da OpenAI
+	•	Geração de imagens de alta qualidade
+	•	Use /draw [prompt] openai
 
-### Fallback Options
-- If premium providers are unavailable, the bot will attempt to use free alternatives
-- Image generation capabilities vary by provider availability
+Google Gemini
+	•	Requer chave da Gemini
+	•	Possui camada gratuita
+	•	Use /draw [prompt] gemini
 
-## Optional: Setup system prompt
+Opções de fallback
+	•	Se provedores premium não estiverem disponíveis, o bot tentará usar alternativas gratuitas
+	•	Capacidades variam conforme o provedor
 
-* A system prompt would be invoked when the bot is first started or reset
-* You can set it up by modifying the content in `system_prompt.txt`
-* All the text in the file will be fired as a prompt to the bot
-* Get the first message from ChatGPT in your discord channel!
-* Go Discord setting turn `developer mode` on
+Opcional: Definir system prompt
+	•	O system prompt é chamado quando o bot inicia ou é resetado
+	•	Configure editando o conteúdo em system_prompt.txt
+	•	O texto será usado como prompt inicial
+	•	Para receber a primeira mensagem no seu canal do Discord:
+	•	Ative o developer mode nas configurações do Discord
+	•	Clique com botão direito no canal → Copy ID
+	•	Cole no .env em DISCORD_CHANNEL_ID
 
-   1. Right-click the channel you want to recieve the message, `Copy  ID`
+Opcional: Desabilitar logging
+	•	No .env, defina LOGGING=False
 
-        ![channel-id](https://user-images.githubusercontent.com/89479282/207697217-e03357b3-3b3d-44d0-b880-163217ed4a49.PNG)
+Comandos
 
-   2. paste it into `.env` under `DISCORD_CHANNEL_ID`
+Comandos principais
+	•	/chat [mensagem] - Conversa com o provedor atual
+	•	/provider - Alterna entre provedores (Gratuito, OpenAI, Claude, Gemini, Grok)
+	•	/draw [prompt] [modelo] - Gera imagens com o provedor escolhido
+	•	/reset - Limpa histórico de conversa
+	•	/help - Lista comandos disponíveis
 
-## Optional: Disable logging
+Comandos de persona
+	•	/switchpersona [persona] - Troca a personalidade do bot (algumas apenas para admin)
+	•	standard - Assistente padrão
+	•	creative - Respostas mais criativas
+	•	technical - Respostas técnicas e precisas
+	•	casual - Tom casual e amigável
+	•	jailbreak-v1 - BYPASS (somente admin)
+	•	jailbreak-v2 - SAM mode (somente admin)
+	•	jailbreak-v3 - Developer Mode Plus (somente admin)
 
-* Set the value of `LOGGING` in the `.env` to False
+Comportamento do bot
+	•	/private - Responde apenas ao usuário que digitou o comando
+	•	/public - Responde para todos (padrão)
+	•	/replyall - Responde a todas as mensagens do canal (toggle)
 
-## Commands
+Segurança
 
-### Core Commands
-* `/chat [message]` - Chat with the current AI provider
-* `/provider` - Switch between AI providers (Free, OpenAI, Claude, Gemini, Grok)
-* `/draw [prompt] [model]` - Generate images with specified provider
-* `/reset` - Clear conversation history
-* `/help` - Display all available commands
+Jailbreaks apenas para administradores
+	1.	Configure ADMIN_USER_IDS no .env com IDs dos administradores
+	2.	Apenas administradores podem acessar personas de jailbreak
+	3.	Usuários comuns só veem personas seguras
 
-### Persona Commands
-* `/switchpersona [persona]` - Switch AI personality (admin-only for jailbreaks)
-   * `standard` - Standard helpful assistant
-   * `creative` - More creative and imaginative responses  
-   * `technical` - Technical and precise responses
-   * `casual` - Casual and friendly tone
-   * `jailbreak-v1` - BYPASS mode (admin only)
-   * `jailbreak-v2` - SAM mode (admin only)
-   * `jailbreak-v3` - Developer Mode Plus (admin only)
+Aviso
+Personas de jailbreak podem gerar conteúdo sem filtros de segurança. Acesso restrito a administradores.
 
-### Bot Behavior
-* `/private` - Bot replies only visible to command user
-* `/public` - Bot replies visible to everyone (default)
-* `/replyall` - Bot responds to all messages in channel (toggle)
-## Security Features
-
-### Admin-Only Jailbreak Access
-Jailbreak personas require admin privileges for enhanced security:
-
-1. Set `ADMIN_USER_IDS` in `.env` with comma-separated Discord user IDs
-2. Only admin users can access jailbreak personas
-3. Regular users see only safe personas in `/switchpersona`
-
-> **Warning**
-> Jailbreak personas may generate content that bypasses normal AI safety measures. Admin access required.
-
-### Environment Security
-- No cookie-based authentication (removed for reliability)
-- Secure API key management via environment variables
-- Docker security hardening with non-root user
-- Read-only filesystem for container security
+Segurança de ambiente
+	•	Sem autenticação baseada em cookies (removida por confiabilidade)
+	•	Chaves de API seguras via variáveis de ambiente
+	•	Docker endurecido para rodar como usuário não-root
